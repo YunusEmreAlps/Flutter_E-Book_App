@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:ebook_app/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -41,7 +42,7 @@ class _SelectedBookScreenState extends State<SelectedBookScreen> {
       });
     });
 
-    /*getFileFromUrl("http://www.pdf995.com/samples/pdf.pdf").then((f) {
+    /*getFileFromUrl(popularBookModel.pdfUrl).then((f) {
       setState(() {
         urlPDFPath = f.path;
         print(urlPDFPath);
@@ -49,6 +50,7 @@ class _SelectedBookScreenState extends State<SelectedBookScreen> {
     });*/
   }
 
+  // From Computer
   Future<File> getFileFromAsset(String asset) async {
     try {
       var data = await rootBundle.load(asset);
@@ -63,19 +65,20 @@ class _SelectedBookScreenState extends State<SelectedBookScreen> {
     }
   }
 
-  /*Future<File> getFileFromUrl(String url) async {
+  // From Website
+  Future<File> getFileFromUrl(String url) async {
     try {
       var data = await http.get(url);
       var bytes = data.bodyBytes;
       var dir = await getApplicationDocumentsDirectory();
-      File file = File("${dir.path}/mypdfonline.pdf");
+      File file = File("${dir.path}");
 
       File urlFile = await file.writeAsBytes(bytes);
       return urlFile;
     } catch (e) {
       throw Exception("Error opening url file");
     }
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +114,13 @@ class _SelectedBookScreenState extends State<SelectedBookScreen> {
                 backgroundColor: kMainColor,
                 expandedHeight: MediaQuery.of(context).size.height * 0.5,
                 flexibleSpace: Container(
-                  color: Color(popularBookModel.color),
+                  // color: Color(popularBookModel.color),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("assets/images/bg.png"),
+                      fit: BoxFit.fitWidth,
+                    ),
+                  ),
                   height: MediaQuery.of(context).size.height * 0.5,
                   child: Stack(
                     children: <Widget>[
@@ -130,7 +139,7 @@ class _SelectedBookScreenState extends State<SelectedBookScreen> {
                                 borderRadius: BorderRadius.circular(5),
                                 color: kWhiteColor),
                             child: SvgPicture.asset(
-                              'assets/icons/icon_back_arrow.svg'),
+                                'assets/icons/icon_back_arrow.svg'),
                           ),
                         ),
                       ),
@@ -147,7 +156,16 @@ class _SelectedBookScreenState extends State<SelectedBookScreen> {
                             ),
                           ),
                         ),
-                      )
+                      ),
+                      Positioned(
+                        top: 35,
+                        right: 25,
+                        child: Column(
+                          children: <Widget>[
+                            BookRating(score: popularBookModel.score),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -289,27 +307,25 @@ class _PdfViewPageState extends State<PdfViewPage> {
         leading: IconButton(
           icon: SvgPicture.asset("assets/icons/icon_back_arrow.svg"),
           onPressed: () {
-            if(_currentPage > 0) {
+            if (_currentPage > 0) {
               _currentPage -= 1;
               _pdfViewController.setPage(_currentPage);
-            }  
+            }
           },
         ),
         actions: <Widget>[
-          
           Transform.rotate(
             angle: 135,
-            child: IconButton(icon: SvgPicture.asset("assets/icons/icon_back_arrow.svg"), 
-            onPressed: () {
-               if( _currentPage + 1 < _totalPages) {
-                  _currentPage += 1;
-                  _pdfViewController.setPage(_currentPage);
-               }
-            }),
+            child: IconButton(
+                icon: SvgPicture.asset("assets/icons/icon_back_arrow.svg"),
+                onPressed: () {
+                  if (_currentPage + 1 < _totalPages) {
+                    _currentPage += 1;
+                    _pdfViewController.setPage(_currentPage);
+                  }
+                }),
           )
         ],
-
-
         title: Text(
           'My Book',
           style: GoogleFonts.openSans(
