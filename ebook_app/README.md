@@ -49,7 +49,8 @@
 ## About The Project
 E-Book (reading book) app design by flutter, at home page it shows you some recommended books, also the book of the day. At the bottom you gonna find your most recent book that you read. On details page book info with it's chapters. 
 
-- You can read books. (for this feature I use flutter_pdfview library)
+- You can read books. (for this feature, I use flutter_pdfview library)
+- Ebook Reader is free.
 
 ### Built With
 
@@ -79,12 +80,12 @@ To run any Android application built with Flutter you need to configure the envi
 - Clone this repo to your local machine using:
 
 ```
-git clone https://github.com/YunusEmreAlps/Flutter_Wordy_App.git
+git clone https://github.com/YunusEmreAlps/Flutter_E-Book_App.git
 ```
 
 ### Setup
 
-To run the app you need to have an online emulator or a plugged device and run the following command in the root of the application (touch-flutter/app)
+To run the app you need to have an online emulator or a plugged device and run the following command in the root of the application.
 
 #### Android
 ```
@@ -128,15 +129,15 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- SCREENSHOTS -->
 ## Screenshots
 
-Splash Screen               |  Home Page               | Search Page               |  Home Page
+Splash Screen               |  Home Page               | Home Page               |  Home Page
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/YunusEmreAlps/Flutter_E-Book_App/blob/master/ebook_app/ss/1.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_E-Book_App/blob/master/ebook_app/ss/2.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_E-Book_App/blob/master/ebook_app/ss/3.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_E-Book_App/blob/master/ebook_app/ss/4.png?raw=true)|
 
-Contact Part             |  Contact Part               | Contact Part               |  Saved Words Page
+Home Page            |  Details Page               | Details Page               |  Book Pages
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/YunusEmreAlps/Flutter_E-Book_App/blob/master/ebook_app/ss/5.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_E-Book_App/blob/master/ebook_app/ss/6.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_E-Book_App/blob/master/ebook_app/ss/7.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_E-Book_App/blob/master/ebook_app/ss/8.png?raw=true)|
 
-Saved Words Page              |  Dictionary Page               | Dictionary Page               |  Dictionary Part
+Book Pages             |  Details Page                | Details Page                |  Book Pages
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/YunusEmreAlps/Flutter_E-Book_App/blob/master/ebook_app/ss/9.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_E-Book_App/blob/master/ebook_app/ss/10.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_E-Book_App/blob/master/ebook_app/ss/11.png?raw=true)|![](https://github.com/YunusEmreAlps/Flutter_E-Book_App/blob/master/ebook_app/ss/12.png?raw=true)|
 
